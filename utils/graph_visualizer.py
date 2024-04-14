@@ -3,11 +3,11 @@ import numpy as np
 from plotly import graph_objects as go
 
 class GraphVisualizer:
-    def __init__(self, node_features: dict, node_labels: dict, edge_index: list, directed: bool = True):
+    def __init__(self, features: dict, labels: dict, edge_index: list, directed: bool = True):
         '''
         `GraphVisualizer`: creates a directed networkx graph from the following inputs
-            - `node_features`: a dictionary where the key is the node ID and the value is the feature vector of the node
-            - `node_labels`: a dictionary where the key is the node ID and the value is the label of the node
+            - `eatures`: a dictionary where the key is the node ID and the value is the feature vector of the node
+            - `labels`: a dictionary where the key is the node ID and the value is the label of the node
             - `edge_index`: a list of edges where each edge is a list [source, target]
             - `directed`: a boolean indicating if the graph is directed or not
         '''
@@ -17,8 +17,8 @@ class GraphVisualizer:
         else:
             self.graph = nx.Graph()
         # Add nodes and edges to the graph
-        for node, feature in node_features.items():
-            self.graph.add_node(node, feature=feature, label=node_labels[node])
+        for node, feature in features.items():
+            self.graph.add_node(node, feature=feature, label=labels[node])
         for edge in edge_index:
             self.graph.add_edge(edge[0], edge[1])
 
