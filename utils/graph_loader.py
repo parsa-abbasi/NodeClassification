@@ -53,4 +53,4 @@ class GraphLoader:
         print('# Nodes:', len(self.features))
         print('# Edges:', len(self.edge_index))
         print('# Classes:', len(set(self.labels.values())))
-        print('Length of feature vector:', len(self.features[list(self.features.keys())[0]]))
+        print('# Features:', len(self.features[list(self.features.keys())[0]]))
