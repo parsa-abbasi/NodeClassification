@@ -25,7 +25,7 @@ The script will load the graph and return the following:
 | --- | --- |
 | `load_data()` | Loads the graph from the given files |
 | `get_data()` | Returns the loaded data (features, labels, and edge_index) |
-| `print_info()` | Prints the information about the loaded graph (number of nodes, number of edges, number of labels, and number of features) |
+| `print_info()` | Prints the information about the loaded graph (number of nodes, edges, features, and labels) |
 
 ### Usage
 
@@ -52,7 +52,7 @@ This script will make a networkx (`nx`) graph from the given graph data and visu
 | --- | --- | --- |
 | `set_node_positions())` | Sets the positions of the nodes in the graph | `pos`: a dictionary where the key is the node ID and the value is the position of the node |
 | `set_layout()` | Sets the layout of the graph | `layout`: a string that represents the layout of the graph (e.g., 'spring', 'kamada_kawai', 'circular', 'random') |
-| `plot()` | Plots the graph | `title`: a string, width: an integer, height: an integer |
+| `plot()` | Plots the graph | `title`: a string, `width`: an integer, `height`: an integer |
 
 ### Usage
 
