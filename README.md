@@ -29,21 +29,9 @@ You can download the dataset from [here](https://linqs-data.soe.ucsc.edu/public/
 
 We will use some of the most popular Graph Neural Networks (GNNs) to solve this node classification problem. The GNNs we will implement are:
 
-1. Graph Convolutional Network (GCN) ([Semi-Supervised Classification with Graph Convolutional Networks](https://arxiv.org/abs/1609.02907)
+1. Graph Convolutional Network (GCN) ([Semi-Supervised Classification with Graph Convolutional Networks](https://arxiv.org/abs/1609.02907))
 2. Graph Attention Network (GAT) ([Graph Attention Networks](https://arxiv.org/abs/1710.10903))
 3. Graph Attention Network v2 (GATv2) ([How Attentive are Graph Attention Networks?](https://arxiv.org/abs/2105.14491))
-
-The designed GNNs consist of two layers of GCN/GAT/GATv2 and a dropout layer between the two layers. The GNNs are trained using the `Adam` optimizer and the Negative Log Likelihood (NLL) loss function. The hyperparameters which we set for the GNNs are based on the original papers, but they can be tuned to improve the performance. The hyperparameters are:
-
-| Hyperparameter | GCN | GAT | GATv2 |
-|----------------|-----|-----|-------|
-| Epochs         | 1000 | 1000 | 1000 |
-| Hidden Channels | 16 | 8 | 8 |
-| Dropout Rate   | 0.5 | 0.6 | 0.6 |
-| Learning Rate  | 0.01 | 0.01 | 0.01 |
-| Weight Decay   | 5e-4 | 5e-4 | 5e-4 |
-| Activation     | ReLU | ELU | ELU |
-| Heads          | - | 8 | 8 |
 
 The implementation of the GNNs is done using the [PyTorch Geometric](https://pytorch-geometric.readthedocs.io/en/latest/) library. The PyTorch Geometric library is a geometric deep learning extension library for PyTorch. It consists of various methods and utilities to ease the implementation of Graph Neural Networks.
 
@@ -132,7 +120,19 @@ However, you can also run the code using the `run.py` script. The script has the
 | `predictions` | A directory containing the predictions of the GNNs in TSV format |
 | `images` | A directory containing the images of the node embeddings visualization |
 
-## Results
+## Experiments
+
+The designed GNNs consist of two layers of GCN/GAT/GATv2 and a dropout layer between the two layers. The GNNs are trained using the `Adam` optimizer and the Negative Log Likelihood (NLL) loss function. The hyperparameters which we set for the GNNs are based on the original papers, but they can be tuned to improve the performance. The hyperparameters are:
+
+| Hyperparameter | GCN | GAT | GATv2 |
+|----------------|-----|-----|-------|
+| Epochs         | 1000 | 1000 | 1000 |
+| Hidden Channels | 16 | 8 | 8 |
+| Dropout Rate   | 0.5 | 0.6 | 0.6 |
+| Learning Rate  | 0.01 | 0.01 | 0.01 |
+| Weight Decay   | 5e-4 | 5e-4 | 5e-4 |
+| Activation     | ReLU | ELU | ELU |
+| Heads          | - | 8 | 8 |
 
 The results of the GNNs on the CORA dataset are as follows:
 
@@ -150,8 +150,8 @@ We can visualize the node embeddings produced by the GNN's layers using the `t-S
 
 ### First Layer
 
-![First Layer](images/first_layer.png)
+![First Layer](https://github.com/parsa-abbasi/NodeClassification/blob/main/images/layer1.png?raw=true)
 
 ### Second Layer
 
-![Second Layer](images/second_layer.png)
+![Second Layer](https://github.com/parsa-abbasi/NodeClassification/blob/main/images/layer2.png?raw=true)
