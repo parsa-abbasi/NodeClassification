@@ -157,3 +157,12 @@ We can visualize the node embeddings produced by the GNN's layers using the `t-S
 ### Second Layer
 
 ![Second Layer](https://github.com/parsa-abbasi/NodeClassification/blob/main/images/layer2.png?raw=true)
+
+## Future Work
+
+The future work can be done to improve the performance of the GNNs on the CORA dataset. Some of the suggestions are:
+
+- Try different number of layers for the GNNs
+- Hyperparameter tuning to find the best set of hyperparameters for the GNNs
+- Add skip connections to the GNNs to improve the flow of information
+- Visualizing the attention scores to understand which nodes are important for the model's predictions
