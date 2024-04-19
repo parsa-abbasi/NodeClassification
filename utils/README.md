@@ -47,6 +47,8 @@ This script will make a networkx (`nx`) graph from the given graph data and visu
 - `edge_index`: a list of tuples where each tuple represents an edge between two nodes
 - `directed`: a boolean that represents whether the graph is directed or not
 
+**Note:** As the visualization is done using plotly, it may not work or render properly when trying to visualize a large graph. In that case, you can use [cytoscape](https://cytoscape.org/) or its extension in [dash](https://dash.plotly.com/cytoscape) to visualize the graph.
+
 ### Functions
 
 | Function | Description | Arguments |

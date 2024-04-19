@@ -166,3 +166,4 @@ The future work can be done to improve the performance of the GNNs on the CORA d
 - Hyperparameter tuning to find the best set of hyperparameters for the GNNs
 - Add skip connections to the GNNs to improve the flow of information
 - Visualizing the attention scores to understand which nodes are important for the model's predictions
+- Can feature engineering such as feature selection improve the performance of the GNNs?
