@@ -116,8 +116,8 @@ if __name__ == '__main__':
     
     parser.add_argument('--seed', type=int, default=42, help='random seed (default: 42)')
     parser.add_argument('--log_dir', type=str, default='logs', help='log directory')
-    parser.add_argument('--file_nodes', type=str, default='./cora/cora.content', help='node file (e.g., cora.content)')
-    parser.add_argument('--file_edges', type=str, default='./cora/cora.cites', help='edge file (e.g., cora.cites)')
+    parser.add_argument('--file_nodes', type=str, default='./data/cora.content', help='node file (e.g., cora.content)')
+    parser.add_argument('--file_edges', type=str, default='./data/cora.cites', help='edge file (e.g., cora.cites)')
     parser.add_argument('--undirected', type=bool, default=True, help='convert graph to undirected')
     parser.add_argument('--row_normalize', type=bool, default=True, help='normalizing feature vectors to have sum of 1')
     parser.add_argument('--folds', type=int, default=10, help='number of folds for cross-validation')
