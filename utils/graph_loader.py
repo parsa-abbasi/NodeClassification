@@ -1,5 +1,4 @@
-import os    
-import networkx as nx
+import os
 
 class GraphLoader:
     '''
@@ -26,6 +25,11 @@ class GraphLoader:
         self.labels = {}
         # List of edges in the graph
         self.edge_index = []
+
+        self.num_nodes = 0
+        self.num_edges = 0
+        self.num_classes = 0
+        self.num_features = 0
         
         # Load the data from the files
         self.load_data()
@@ -46,11 +50,28 @@ class GraphLoader:
                 line = line.strip().split()
                 self.edge_index.append([int(line[0]), int(line[1])])
 
+        self.num_nodes = len(self.features)
+        self.num_edges = len(self.edge_index)
+        self.num_classes = len(set(self.labels.values()))
+        self.num_features = len(self.features[list(self.features.keys())[0]])
+
     def get_data(self):
         return self.features, self.labels, self.edge_index
     
     def print_info(self):
-        print('# Nodes:', len(self.features))
-        print('# Edges:', len(self.edge_index))
-        print('# Classes:', len(set(self.labels.values())))
-        print('# Features:', len(self.features[list(self.features.keys())[0]]))
+        print('# Nodes:', self.num_nodes)
+        print('# Edges:', self.num_edges)
+        print('# Classes:', self.num_classes)
+        print('# Features:', self.num_features)
+
+    def to_undirected(self):
+        '''
+        Convert the graph to an undirected graph by adding the inverse edges (if not already exist)
+        '''
+
+        edge_index = self.edge_index
+        for edge in self.edge_index:
+            if [edge[1], edge[0]] not in edge_index:
+                edge_index.append([edge[1], edge[0]])
+        self.edge_index = edge_index
+        self.num_edges = len(edge_index)

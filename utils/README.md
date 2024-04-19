@@ -23,9 +23,10 @@ The script will load the graph and return the following:
 
 | Function | Description |
 | --- | --- |
-| `load_data()` | Loads the graph from the given files |
+| `load_data()` | Loads the graph from the given files (it will be called automatically when the object is created) |
 | `get_data()` | Returns the loaded data (features, labels, and edge_index) |
 | `print_info()` | Prints the information about the loaded graph (number of nodes, edges, features, and labels) |
+| `to_undirected()` | Converts the graph to an undirected graph by adding the inverse edges |
 
 ### Usage
 
