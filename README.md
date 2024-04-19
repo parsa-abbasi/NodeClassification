@@ -33,6 +33,8 @@ We will use some of the most popular Graph Neural Networks (GNNs) to solve this 
 2. Graph Attention Network (GAT) ([Graph Attention Networks](https://arxiv.org/abs/1710.10903))
 3. Graph Attention Network v2 (GATv2) ([How Attentive are Graph Attention Networks?](https://arxiv.org/abs/2105.14491))
 
+The full description of how a GNN works and what are the structures of these models are provided in the juptyer notebook.
+
 The implementation of the GNNs is done using the [PyTorch Geometric](https://pytorch-geometric.readthedocs.io/en/latest/) library. The PyTorch Geometric library is a geometric deep learning extension library for PyTorch. It consists of various methods and utilities to ease the implementation of Graph Neural Networks.
 
 The main steps involved in the implementation are:
