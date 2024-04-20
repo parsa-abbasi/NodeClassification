@@ -166,7 +166,8 @@ The best set of hyperparameters achieved an accuracy of `88.88%` on the CORA dat
 
 <details>
   <summary>Code snippet to run the hyperparameter tuning</summary>
-
+    <br>
+    
     I avoid putting the hyperparameter tuning code in the juptyer notebook to keep it clean. However, you can run the hyperparameter tuning using the following code snippet:
 
     ```python
@@ -207,6 +208,7 @@ The best set of hyperparameters achieved an accuracy of `88.88%` on the CORA dat
     results.reset_index(drop=True, inplace=True)
     results
     ```
+
 </details>
 
 ## Node Embeddings Visualization
