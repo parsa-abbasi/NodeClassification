@@ -167,8 +167,8 @@ The best set of hyperparameters achieved an accuracy of `88.88%` on the CORA dat
 <details>
   <summary>Code snippet to run the hyperparameter tuning</summary>
     <br>
-    
     I avoid putting the hyperparameter tuning code in the juptyer notebook to keep it clean. However, you can run the hyperparameter tuning using the following code snippet:
+    <br>
 
     ```python
     from itertools import product
