@@ -165,50 +165,48 @@ The best set of hyperparameters achieved an accuracy of `88.88%` on the CORA dat
 | `heads` | `8` |
 
 <details>
-  <summary>Code snippet to run the hyperparameter tuning</summary>
-    <br>
-    I avoid putting the hyperparameter tuning code in the juptyer notebook to keep it clean. However, you can run the hyperparameter tuning using the following code snippet:
-    <br>
+<summary>Code snippet to run the hyperparameter tuning</summary>
+  
+I avoid putting the hyperparameter tuning code in the juptyer notebook to keep it clean. However, you can run the hyperparameter tuning using the following code snippet:
+  
+```python
+from itertools import product
 
-    ```python
-    from itertools import product
-
-    hyperparameters = {
-        'hidden_channels': [16, 32, 64],
-        'dropout': [0.5, 0.6, 0.7],
-        'activation': ['relu', 'elu', 'leaky_relu'],
-        'heads': [8],
-        'layer': ['gatv2']
-    }
-    # Generate all combinations of hyperparameters
-    combinations = list(product(*hyperparameters.values()))
-    # Initialize an empty list to store the results
-    all_results = []
-    # Iterate over all combinations of hyperparameters
-    for i, combination in enumerate(combinations):
-        print('='*100)
-        print(f"Combination {i + 1}/{len(combinations)}")
-        hidden_channels, dropout, activation, heads, layer = combination
-        print(f"Hidden Channels: {hidden_channels}, Dropout: {dropout}, Activation: {activation}, Heads: {heads}, Layer: {layer}")
-        # Initialize the runner with the hyperparameters
-        runner = Runner(folds=10, epochs=400, hidden_channels=hidden_channels, dropout=dropout,
-                        activation=activation, lr=0.01, weight_decay=5e-4, layer=layer, heads=heads)
-        # Run the model
-        predictions = runner.run()
-        # Compute the accuracy
-        results_df = final_predictions(predictions)
-        merged = pd.merge(df, results_df, on='Node ID')
-        acc = accuracy_score(merged['Label'], merged['Prediction'])
-        # Append the results to the list
-        all_results.append({'Model': layer, 'Hidden Channels': hidden_channels, 'Dropout': dropout,
-                            'Activation': activation, 'Heads': heads, 'Accuracy': acc})
-    # Convert the results to a DataFrame and sort them by accuracy
-    results = pd.DataFrame(all_results)
-    results.sort_values(by='Accuracy', ascending=False, inplace=True)
-    results.reset_index(drop=True, inplace=True)
-    results
-    ```
-
+hyperparameters = {
+    'hidden_channels': [16, 32, 64],
+    'dropout': [0.5, 0.6, 0.7],
+    'activation': ['relu', 'elu', 'leaky_relu'],
+    'heads': [8],
+    'layer': ['gatv2']
+}
+# Generate all combinations of hyperparameters
+combinations = list(product(*hyperparameters.values()))
+# Initialize an empty list to store the results
+all_results = []
+# Iterate over all combinations of hyperparameters
+for i, combination in enumerate(combinations):
+    print('='*100)
+    print(f"Combination {i + 1}/{len(combinations)}")
+    hidden_channels, dropout, activation, heads, layer = combination
+    print(f"Hidden Channels: {hidden_channels}, Dropout: {dropout}, Activation: {activation}, Heads: {heads}, Layer: {layer}")
+    # Initialize the runner with the hyperparameters
+    runner = Runner(folds=10, epochs=400, hidden_channels=hidden_channels, dropout=dropout,
+                    activation=activation, lr=0.01, weight_decay=5e-4, layer=layer, heads=heads)
+    # Run the model
+    predictions = runner.run()
+    # Compute the accuracy
+    results_df = final_predictions(predictions)
+    merged = pd.merge(df, results_df, on='Node ID')
+    acc = accuracy_score(merged['Label'], merged['Prediction'])
+    # Append the results to the list
+    all_results.append({'Model': layer, 'Hidden Channels': hidden_channels, 'Dropout': dropout,
+                        'Activation': activation, 'Heads': heads, 'Accuracy': acc})
+# Convert the results to a DataFrame and sort them by accuracy
+results = pd.DataFrame(all_results)
+results.sort_values(by='Accuracy', ascending=False, inplace=True)
+results.reset_index(drop=True, inplace=True)
+results
+```
 </details>
 
 ## Node Embeddings Visualization
