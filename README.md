@@ -155,7 +155,7 @@ Based on this assumption, the GATv2 model was exprimented with different set of 
 | `activation` | `['relu', 'elu', 'leaky_relu']` |
 | `heads` | `[8]` |
 
-The best set of hyperparameters achieved an accuracy of `88.88%` on the CORA dataset. The best set of hyperparameters are:
+The best set of hyperparameters achieved a validation accuracy of `88.88%` on the CORA dataset. The best set of hyperparameters are:
 
 | Hyperparameter | Value |
 |----------------|-------|
@@ -163,6 +163,8 @@ The best set of hyperparameters achieved an accuracy of `88.88%` on the CORA dat
 | `dropout` | `0.6` |
 | `activation` | `'elu'` |
 | `heads` | `8` |
+
+**Note:** As this is just a practical example, we didn't use any hold-out test set to evaluate the final model. However, in a real-world scenario, we should do that to get an unbiased estimate of the model's performance.
 
 <details>
 <summary>Code snippet to run the hyperparameter tuning</summary>
